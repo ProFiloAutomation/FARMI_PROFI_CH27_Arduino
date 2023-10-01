@@ -7,7 +7,7 @@ const int backwardButton = 11;
 const int forwardValvePin = 8;
 const int backwardValvePin = 9;
 const int SelectorPin = 7;
-const int toggleOutputPin = 12;
+const int toggleOutputPin = 13;
 
 /* SIGNAL FILTERING */
 const unsigned long RISING_EDGE_FILTER_TIME = 5000; // numero di microsecondi per il filtraggio 
@@ -347,7 +347,7 @@ void loop() {
     digitalWrite(backwardValvePin, HIGH);
   }
 
-
+  /*
   // BUTTON MANAGEMENT selettore laterale della scatola
   SelectorReading = digitalRead(SelectorPin);
 
@@ -372,11 +372,13 @@ void loop() {
 
   // only toggle the LED if the new button state is HIGH
   if (SelectorState == HIGH) { // fronte positivo, allora avvio toggling di un digitalOutput
-    toggleOutputState = !toggleOutputState; // il primo fronte di salita scatena acquisizione dell'oscilloscopio 
+     // il primo fronte di salita scatena acquisizione dell'oscilloscopio 
   }
-  else{
-    toggleOutputState = LOW;        
+  else{       
   }
 
+  */
+
   digitalWrite(toggleOutputPin, toggleOutputState);
+  toggleOutputState = !toggleOutputState;
 }
